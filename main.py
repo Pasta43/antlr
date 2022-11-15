@@ -3,7 +3,10 @@ from antlr4 import *
 from ChibchombianoLexer import ChibchombianoLexer
 from ChibchombianoParser import ChibchombianoParser
 from ChibchombianoVisitor import ChibchombianoVisitor
- 
+
+
+
+
 def main(argv):
     if len(argv)>1:
         print("Interpretando archivo",argv[1])

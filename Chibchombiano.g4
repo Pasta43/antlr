@@ -2,75 +2,124 @@ grammar Chibchombiano;
 
 @parser::header { 
 import numpy as np
-dictionary_symbols = dict()  
+dictionary_symbols = dict() 
+from ASTNode.Puts import Puts 
+
+from ASTNode.GreaterThan import GreaterThan
+
+from ASTNode.If import If
+from ASTNode.WhileLoop import WhileLoop
+
+from ASTNode.Addition import Addition
+from ASTNode.Substraction import Substraction
+from ASTNode.Multiplication import Multiplication
+from ASTNode.Division import Division
+from ASTNode.Module import Module
+from ASTNode.Exponent import Exponent
+
+
+
+from ASTNode.Constant import Constant
+from ASTNode.VarDecl import VarDecl
+from ASTNode.VarRef import VarRef
+from ASTNode.VarAssign import VarAssign
 }
 
 @parser::members {
 
 }
-program: 
-        sentence* 
+program:
+        {body=list()}
+        (sentence {body.append($sentence.node)})* 
+{
+for node in body:
+    node.execute(dictionary_symbols)
+}
         ;
 
-sentence: var_decl | var_assign | std_output ;
-var_decl: VAR ID SEMICOLON 
+sentence returns [node]:  
+        var_assign {$node =$var_assign.node}
+        |
+        var_decl {$node = $var_decl.node}
+        |
+        std_output {$node = $std_output.node}
+        | 
+        conditional {$node=$conditional.node};
+var_decl returns [node]: VAR ID  
 {
-dictionary_symbols[$ID.text]=""
+$node = VarDecl($ID.text)
 } ;
 
-var_assign: ID ASSIGN expression SEMICOLON
-        {dictionary_symbols[$ID.text]=$expression.value};
-        
+greater_than returns[node]: e1=expression GT e2=expression
+{$node=GreaterThan($e1.node,$e2.node)};
 
-std_output: PUTS expression SEMICOLON 
-            {print($expression.value)};
-conditional: IF PAR_OPEN expression PAR_CLOSE
-        BRACKET_OPEN sentence* BRACKET_CLOSE
+lower_than returns[node]: e1=expression LT e2=expression;
+
+equals returns[node]: e1=expression EQ e2=expression;
+
+var_assign returns[node]: ID ASSIGN expression
+        {$node = VarAssign($ID.text,$expression.node)};
+        
+std_output returns[node]: PUTS expression  
+            {$node = Puts($expression.node) };
+
+conditional returns[node]: IF PAR_OPEN expression PAR_CLOSE
+        {body=list()}
+        {elseBody=list()}
+        BRACKET_OPEN (s1=sentence {body.append($s1.node)})* BRACKET_CLOSE
+        (ELSE 
+        BRACKET_OPEN (s2=sentence {elseBody.append($s2.node)})* BRACKET_CLOSE)?
+        {$node = If($expression.node,body,elseBody)}
 ;
 
-expression returns [value]:  
-        t1=factor {$value= $t1.value}
+while_loop returns[node]: WHILE PAR_OPEN expression PAR_CLOSE
+        {body=list()}
+        BRACKET_OPEN (s1= sentence {body.append($s1.node)})* BRACKET_CLOSE
+        {$node = WhileLoop($expression.node,body)}
+;       
+expression returns [node]:  
+        t1=factor {$node= $t1.node}
         (
                 PLUS t2=factor 
-                {$value+= $t2.value}
+                {$node= Addition($node,$t2.node)}
                 |
                 MINUS t3=factor 
-                {$value -= $t3.value}
+                {$node -= $t3.node}
         )*;
-factor returns [value]:
-        t1=exponent {$value = $t1.value }
+factor returns [node]:
+        t1=exponent {$node = $t1.node }
         (
                 MULT t2=exponent
-                {$value *= $t2.value}
+                {$node = Multiplication($node, $t2.node)}
                 |
                 DIV  t3=exponent
-                {$value /= $t3.value}
+                {$node /= $t3.node}
                 |
                 MOD  t4=exponent
-                {$value %=  $t4.value}
+                {$node %=  $t4.node}
         )*;
 
-exponent returns[value]:
-        t1= term {$value=$t1.value}
+exponent returns[node]:
+        t1= term {$node=$t1.node}
         (
-                POW t2= term {$value = $value**$t2.value}
+                POW t2= term {$node = Exponent($node,$t2.node)}
         )*;
 
-term returns [value]: NUMBER {
+term returns [node]: NUMBER {
 splitted = $NUMBER.text.split(".") 
 if len(splitted)==1:
-        $value = int($NUMBER.text)
+        $node = Constant(int($NUMBER.text))
 elif len(splitted)==2:
-        $value = float($NUMBER.text)
+        $node = Constant(float($NUMBER.text))
 }
 |
-ID {$value = dictionary_symbols.get($ID.text,None)}
+ID {$node = VarRef($ID.text)}
 |
 BOOLEAN {
-put_bool=lambda x: True if x=="true" else False
-$value= put_bool($BOOLEAN.text)}
+put_bool=lambda x: x=="true"
+$node= Constant(put_bool($BOOLEAN.text))}
 |
-PAR_OPEN expression PAR_CLOSE {$value=$expression.value};
+PAR_OPEN expression PAR_CLOSE {$node=$expression.node};
 
 PROGRAM: 'program';
 VAR: 'var';
@@ -78,6 +127,8 @@ PUTS: 'puts';
 
 IF: 'if';
 ELSE: 'else';
+
+WHILE: 'while';
 
 
 PLUS: '+';
