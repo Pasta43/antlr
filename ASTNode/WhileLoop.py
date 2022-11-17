@@ -12,9 +12,7 @@ class WhileLoop(ASTNode):
         self.body=body
 
     def execute(self,symbolTable:list):
-        if self.condition.execute(symbolTable):
+        while self.condition.execute(symbolTable):
             for node in self.body:
                 node.execute(symbolTable)
-        else:
-            for node in self.elseBody:
-                node.execute(symbolTable)
+        

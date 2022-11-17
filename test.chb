@@ -1,7 +1,7 @@
 x=3
-cond = true
+cond = false
 if (cond){
     puts x
 }else{
-    
+  puts x+1  
 }
