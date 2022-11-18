@@ -6,6 +6,10 @@ dictionary_symbols = dict()
 from ASTNode.Puts import Puts 
 
 from ASTNode.GreaterThan import GreaterThan
+from ASTNode.LowerThan import LowerThan
+from ASTNode.EqualsThan import EqualsThan
+from ASTNode.LowerOrEqualThan import LowerOrEqualThan 
+from ASTNode.GreaterOrEqualThan import GreaterOrEqualThan
 
 from ASTNode.If import If
 from ASTNode.WhileLoop import WhileLoop
@@ -50,12 +54,6 @@ var_decl returns [node]: VAR ID
 $node = VarDecl($ID.text)
 } ;
 
-greater_than returns[node]: e1=expression GT e2=expression
-{$node=GreaterThan($e1.node,$e2.node)};
-
-lower_than returns[node]: e1=expression LT e2=expression;
-
-equals returns[node]: e1=expression EQ e2=expression;
 
 var_assign returns[node]: ID ASSIGN expression
         {$node = VarAssign($ID.text,$expression.node)};
@@ -77,14 +75,54 @@ while_loop returns[node]: WHILE PAR_OPEN expression PAR_CLOSE
         BRACKET_OPEN (s1= sentence {body.append($s1.node)})* BRACKET_CLOSE
         {$node = WhileLoop($expression.node,body)}
 ;       
-expression returns [node]:  
+condition returns[node]: comparison {$node=$comparison.node}
+ (
+        AND
+        |
+        OR
+)*;
+comparison returns[node]: (
+        e1=greater_than
+        {$node=$e1.node} 
+        | 
+        e2=lower_than 
+        {$node=$e2.node}
+        | 
+        e3=equals 
+        {$node=$e3.node}
+        | 
+        e4=greater_or_equal_than
+        {$node=$e4.node}
+        |
+        e5=lower_or_equal_than
+        {$node=$e5.node} ) ;
+
+greater_than returns[node]: e1=expression GT e2=expression
+{$node=GreaterThan($e1.node,$e2.node)};
+
+lower_than returns[node]: e1=expression LT e2=expression
+{$node=LowerThan($e1.node,$e2.node)};
+
+equals returns[node]: e1=expression EQ e2=expression
+{$node=Equals($e1.node,$e2.node)};
+
+greater_or_equal_than returns[node]: e1=expression GEQ e2=expression
+{$node=GreaterOrEqualThan($e1.node,$e2.node)};
+
+lower_or_equal_than returns[node]: e1=expression LEQ e2=expression
+{$node=LowerOrEqualThan($e1.node,$e2.node)};
+
+
+expression returns [node]:
         t1=factor {$node= $t1.node}
         (
                 PLUS t2=factor 
                 {$node= Addition($node,$t2.node)}
                 |
                 MINUS t3=factor 
-                {$node -= $t3.node}
+                {$node = Substraction($node,$t3.node)}
+                |
+                condition
         )*;
 factor returns [node]:
         t1=exponent {$node = $t1.node }
@@ -93,10 +131,10 @@ factor returns [node]:
                 {$node = Multiplication($node, $t2.node)}
                 |
                 DIV  t3=exponent
-                {$node /= $t3.node}
+                {$node = Division($node,$t3.node)}
                 |
                 MOD  t4=exponent
-                {$node %=  $t4.node}
+                {$node =  Module($node,$t4.node)}
         )*;
 
 exponent returns[node]:
@@ -163,7 +201,7 @@ BOOLEAN: 'true'|'false';
 
 ID: [a-zA-Z_][a-zA-Z0-9_]*;
 
-NUMBER: [-]?[0-9]+[.]?[0-9]*;
+NUMBER: [0-9]+[.]?[0-9]*;
 
 STRING: [a-zA-Z]+;
 

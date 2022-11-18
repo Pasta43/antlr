@@ -10,6 +10,10 @@ dictionary_symbols = dict()
 from ASTNode.Puts import Puts 
 
 from ASTNode.GreaterThan import GreaterThan
+from ASTNode.LowerThan import LowerThan
+from ASTNode.EqualsThan import EqualsThan
+from ASTNode.LowerOrEqualThan import LowerOrEqualThan 
+from ASTNode.GreaterOrEqualThan import GreaterOrEqualThan
 
 from ASTNode.If import If
 from ASTNode.WhileLoop import WhileLoop
@@ -48,21 +52,6 @@ class ChibchombianoVisitor(ParseTreeVisitor):
         return self.visitChildren(ctx)
 
 
-    # Visit a parse tree produced by ChibchombianoParser#greater_than.
-    def visitGreater_than(self, ctx:ChibchombianoParser.Greater_thanContext):
-        return self.visitChildren(ctx)
-
-
-    # Visit a parse tree produced by ChibchombianoParser#lower_than.
-    def visitLower_than(self, ctx:ChibchombianoParser.Lower_thanContext):
-        return self.visitChildren(ctx)
-
-
-    # Visit a parse tree produced by ChibchombianoParser#equals.
-    def visitEquals(self, ctx:ChibchombianoParser.EqualsContext):
-        return self.visitChildren(ctx)
-
-
     # Visit a parse tree produced by ChibchombianoParser#var_assign.
     def visitVar_assign(self, ctx:ChibchombianoParser.Var_assignContext):
         return self.visitChildren(ctx)
@@ -80,6 +69,41 @@ class ChibchombianoVisitor(ParseTreeVisitor):
 
     # Visit a parse tree produced by ChibchombianoParser#while_loop.
     def visitWhile_loop(self, ctx:ChibchombianoParser.While_loopContext):
+        return self.visitChildren(ctx)
+
+
+    # Visit a parse tree produced by ChibchombianoParser#condition.
+    def visitCondition(self, ctx:ChibchombianoParser.ConditionContext):
+        return self.visitChildren(ctx)
+
+
+    # Visit a parse tree produced by ChibchombianoParser#comparison.
+    def visitComparison(self, ctx:ChibchombianoParser.ComparisonContext):
+        return self.visitChildren(ctx)
+
+
+    # Visit a parse tree produced by ChibchombianoParser#greater_than.
+    def visitGreater_than(self, ctx:ChibchombianoParser.Greater_thanContext):
+        return self.visitChildren(ctx)
+
+
+    # Visit a parse tree produced by ChibchombianoParser#lower_than.
+    def visitLower_than(self, ctx:ChibchombianoParser.Lower_thanContext):
+        return self.visitChildren(ctx)
+
+
+    # Visit a parse tree produced by ChibchombianoParser#equals.
+    def visitEquals(self, ctx:ChibchombianoParser.EqualsContext):
+        return self.visitChildren(ctx)
+
+
+    # Visit a parse tree produced by ChibchombianoParser#greater_or_equal_than.
+    def visitGreater_or_equal_than(self, ctx:ChibchombianoParser.Greater_or_equal_thanContext):
+        return self.visitChildren(ctx)
+
+
+    # Visit a parse tree produced by ChibchombianoParser#lower_or_equal_than.
+    def visitLower_or_equal_than(self, ctx:ChibchombianoParser.Lower_or_equal_thanContext):
         return self.visitChildren(ctx)
 
 

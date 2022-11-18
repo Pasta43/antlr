@@ -1,7 +1,6 @@
 x=3
-cond = false
-if (cond){
-    puts x
+if(3<2){
+    puts x-2
 }else{
   puts x+1  
 }
