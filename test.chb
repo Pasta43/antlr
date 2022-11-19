@@ -1,6 +1,11 @@
-x=3
-if(3<2){
+x=1
+if(x<2){
     puts x-2
 }else{
   puts x+1  
+}
+
+while(x<3){
+  x=x+1
+  puts x
 }

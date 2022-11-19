@@ -31,6 +31,7 @@ from ASTNode.Constant import Constant
 from ASTNode.VarDecl import VarDecl
 from ASTNode.VarRef import VarRef
 from ASTNode.VarAssign import VarAssign
+from ASTNode.Array import Array
 
 
 # This class defines a complete generic visitor for a parse tree produced by ChibchombianoParser.
@@ -72,43 +73,18 @@ class ChibchombianoVisitor(ParseTreeVisitor):
         return self.visitChildren(ctx)
 
 
-    # Visit a parse tree produced by ChibchombianoParser#condition.
-    def visitCondition(self, ctx:ChibchombianoParser.ConditionContext):
-        return self.visitChildren(ctx)
-
-
-    # Visit a parse tree produced by ChibchombianoParser#comparison.
-    def visitComparison(self, ctx:ChibchombianoParser.ComparisonContext):
-        return self.visitChildren(ctx)
-
-
-    # Visit a parse tree produced by ChibchombianoParser#greater_than.
-    def visitGreater_than(self, ctx:ChibchombianoParser.Greater_thanContext):
-        return self.visitChildren(ctx)
-
-
-    # Visit a parse tree produced by ChibchombianoParser#lower_than.
-    def visitLower_than(self, ctx:ChibchombianoParser.Lower_thanContext):
-        return self.visitChildren(ctx)
-
-
-    # Visit a parse tree produced by ChibchombianoParser#equals.
-    def visitEquals(self, ctx:ChibchombianoParser.EqualsContext):
-        return self.visitChildren(ctx)
-
-
-    # Visit a parse tree produced by ChibchombianoParser#greater_or_equal_than.
-    def visitGreater_or_equal_than(self, ctx:ChibchombianoParser.Greater_or_equal_thanContext):
-        return self.visitChildren(ctx)
-
-
-    # Visit a parse tree produced by ChibchombianoParser#lower_or_equal_than.
-    def visitLower_or_equal_than(self, ctx:ChibchombianoParser.Lower_or_equal_thanContext):
-        return self.visitChildren(ctx)
-
-
     # Visit a parse tree produced by ChibchombianoParser#expression.
     def visitExpression(self, ctx:ChibchombianoParser.ExpressionContext):
+        return self.visitChildren(ctx)
+
+
+    # Visit a parse tree produced by ChibchombianoParser#logical_expression.
+    def visitLogical_expression(self, ctx:ChibchombianoParser.Logical_expressionContext):
+        return self.visitChildren(ctx)
+
+
+    # Visit a parse tree produced by ChibchombianoParser#sum.
+    def visitSum(self, ctx:ChibchombianoParser.SumContext):
         return self.visitChildren(ctx)
 
 
@@ -124,6 +100,11 @@ class ChibchombianoVisitor(ParseTreeVisitor):
 
     # Visit a parse tree produced by ChibchombianoParser#term.
     def visitTerm(self, ctx:ChibchombianoParser.TermContext):
+        return self.visitChildren(ctx)
+
+
+    # Visit a parse tree produced by ChibchombianoParser#array.
+    def visitArray(self, ctx:ChibchombianoParser.ArrayContext):
         return self.visitChildren(ctx)
 
 

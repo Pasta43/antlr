@@ -27,6 +27,7 @@ from ASTNode.Constant import Constant
 from ASTNode.VarDecl import VarDecl
 from ASTNode.VarRef import VarRef
 from ASTNode.VarAssign import VarAssign
+from ASTNode.Array import Array
 }
 
 @parser::members {
@@ -48,7 +49,11 @@ sentence returns [node]:
         |
         std_output {$node = $std_output.node}
         | 
-        conditional {$node=$conditional.node};
+        conditional {$node=$conditional.node}
+        |
+        while_loop {$node = $while_loop.node}
+        |
+        expression {$node = $expression.node};
 var_decl returns [node]: VAR ID  
 {
 $node = VarDecl($ID.text)
@@ -75,45 +80,34 @@ while_loop returns[node]: WHILE PAR_OPEN expression PAR_CLOSE
         BRACKET_OPEN (s1= sentence {body.append($s1.node)})* BRACKET_CLOSE
         {$node = WhileLoop($expression.node,body)}
 ;       
-condition returns[node]: comparison {$node=$comparison.node}
- (
-        AND
-        |
-        OR
-)*;
-comparison returns[node]: (
-        e1=greater_than
-        {$node=$e1.node} 
-        | 
-        e2=lower_than 
-        {$node=$e2.node}
-        | 
-        e3=equals 
-        {$node=$e3.node}
-        | 
-        e4=greater_or_equal_than
-        {$node=$e4.node}
-        |
-        e5=lower_or_equal_than
-        {$node=$e5.node} ) ;
-
-greater_than returns[node]: e1=expression GT e2=expression
-{$node=GreaterThan($e1.node,$e2.node)};
-
-lower_than returns[node]: e1=expression LT e2=expression
-{$node=LowerThan($e1.node,$e2.node)};
-
-equals returns[node]: e1=expression EQ e2=expression
-{$node=Equals($e1.node,$e2.node)};
-
-greater_or_equal_than returns[node]: e1=expression GEQ e2=expression
-{$node=GreaterOrEqualThan($e1.node,$e2.node)};
-
-lower_or_equal_than returns[node]: e1=expression LEQ e2=expression
-{$node=LowerOrEqualThan($e1.node,$e2.node)};
 
 
-expression returns [node]:
+expression returns[node]: logical_expression {$node=$logical_expression.node};
+logical_expression returns[node]: 
+        e1=sum {$node=$e1.node}
+        (
+                GT e2=expression
+                {$node=GreaterThan($e1.node,$e2.node)}
+                |
+                LT e3=expression
+                {$node=LowerThan($e1.node,$e3.node)}
+                |
+                EQ e4=expression
+                {$node=Equals($e1.node,$e4.node)}
+                |
+                GEQ e5=expression
+                {$node=GreaterOrEqualThan($e1.node,$e5.node)}
+                |
+                LEQ e6=expression
+                {$node=LowerOrEqualThan($e1.node,$e6.node)}  
+        )*
+
+;
+
+
+
+
+sum returns [node]:
         t1=factor {$node= $t1.node}
         (
                 PLUS t2=factor 
@@ -121,8 +115,6 @@ expression returns [node]:
                 |
                 MINUS t3=factor 
                 {$node = Substraction($node,$t3.node)}
-                |
-                condition
         )*;
 factor returns [node]:
         t1=exponent {$node = $t1.node }
@@ -157,7 +149,20 @@ BOOLEAN {
 put_bool=lambda x: x=="true"
 $node= Constant(put_bool($BOOLEAN.text))}
 |
-PAR_OPEN expression PAR_CLOSE {$node=$expression.node};
+PAR_OPEN expression PAR_CLOSE {$node=$expression.node}
+|
+array {$node=$array.node}
+|
+function {$node=$function.node};
+
+function returns[node]: ID PAR_OPEN arguments? PAR_CLOSE
+{$node = Function($ID.text,$arguments.node)}
+;
+
+arguments returns[node]: expression (','expression)*;
+array returns[node]: 
+ {$node = Array()}
+ SQUARE_BRACKET_OPEN (e1=expression{$node.add($e1.node)} ( ',' e2=expression {$node.add($e2.node)})*)? SQUARE_BRACKET_CLOSE;
 
 PROGRAM: 'program';
 VAR: 'var';
@@ -188,6 +193,9 @@ EQ: '==';
 NEQ: '!=';
 
 ASSIGN: '=';
+
+SQUARE_BRACKET_OPEN: '[';
+SQUARE_BRACKET_CLOSE: ']';
 
 BRACKET_OPEN: '{';
 BRACKET_CLOSE: '}';

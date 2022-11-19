@@ -1,0 +1,11 @@
+x=[1,2,3,4,5,6,7,8,9]
+y1=sin(x)
+y2=cos(x)
+y3=tan(x)
+y4=csc(x)
+y5=sec(x)
+y6=cot(x)
+plot(x,y1)
+plot(x,y2)
+plot(x,y3)
+plot(x,y4)

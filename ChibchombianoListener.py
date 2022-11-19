@@ -31,6 +31,7 @@ from ASTNode.Constant import Constant
 from ASTNode.VarDecl import VarDecl
 from ASTNode.VarRef import VarRef
 from ASTNode.VarAssign import VarAssign
+from ASTNode.Array import Array
 
 
 # This class defines a complete listener for a parse tree produced by ChibchombianoParser.
@@ -99,75 +100,30 @@ class ChibchombianoListener(ParseTreeListener):
         pass
 
 
-    # Enter a parse tree produced by ChibchombianoParser#condition.
-    def enterCondition(self, ctx:ChibchombianoParser.ConditionContext):
-        pass
-
-    # Exit a parse tree produced by ChibchombianoParser#condition.
-    def exitCondition(self, ctx:ChibchombianoParser.ConditionContext):
-        pass
-
-
-    # Enter a parse tree produced by ChibchombianoParser#comparison.
-    def enterComparison(self, ctx:ChibchombianoParser.ComparisonContext):
-        pass
-
-    # Exit a parse tree produced by ChibchombianoParser#comparison.
-    def exitComparison(self, ctx:ChibchombianoParser.ComparisonContext):
-        pass
-
-
-    # Enter a parse tree produced by ChibchombianoParser#greater_than.
-    def enterGreater_than(self, ctx:ChibchombianoParser.Greater_thanContext):
-        pass
-
-    # Exit a parse tree produced by ChibchombianoParser#greater_than.
-    def exitGreater_than(self, ctx:ChibchombianoParser.Greater_thanContext):
-        pass
-
-
-    # Enter a parse tree produced by ChibchombianoParser#lower_than.
-    def enterLower_than(self, ctx:ChibchombianoParser.Lower_thanContext):
-        pass
-
-    # Exit a parse tree produced by ChibchombianoParser#lower_than.
-    def exitLower_than(self, ctx:ChibchombianoParser.Lower_thanContext):
-        pass
-
-
-    # Enter a parse tree produced by ChibchombianoParser#equals.
-    def enterEquals(self, ctx:ChibchombianoParser.EqualsContext):
-        pass
-
-    # Exit a parse tree produced by ChibchombianoParser#equals.
-    def exitEquals(self, ctx:ChibchombianoParser.EqualsContext):
-        pass
-
-
-    # Enter a parse tree produced by ChibchombianoParser#greater_or_equal_than.
-    def enterGreater_or_equal_than(self, ctx:ChibchombianoParser.Greater_or_equal_thanContext):
-        pass
-
-    # Exit a parse tree produced by ChibchombianoParser#greater_or_equal_than.
-    def exitGreater_or_equal_than(self, ctx:ChibchombianoParser.Greater_or_equal_thanContext):
-        pass
-
-
-    # Enter a parse tree produced by ChibchombianoParser#lower_or_equal_than.
-    def enterLower_or_equal_than(self, ctx:ChibchombianoParser.Lower_or_equal_thanContext):
-        pass
-
-    # Exit a parse tree produced by ChibchombianoParser#lower_or_equal_than.
-    def exitLower_or_equal_than(self, ctx:ChibchombianoParser.Lower_or_equal_thanContext):
-        pass
-
-
     # Enter a parse tree produced by ChibchombianoParser#expression.
     def enterExpression(self, ctx:ChibchombianoParser.ExpressionContext):
         pass
 
     # Exit a parse tree produced by ChibchombianoParser#expression.
     def exitExpression(self, ctx:ChibchombianoParser.ExpressionContext):
+        pass
+
+
+    # Enter a parse tree produced by ChibchombianoParser#logical_expression.
+    def enterLogical_expression(self, ctx:ChibchombianoParser.Logical_expressionContext):
+        pass
+
+    # Exit a parse tree produced by ChibchombianoParser#logical_expression.
+    def exitLogical_expression(self, ctx:ChibchombianoParser.Logical_expressionContext):
+        pass
+
+
+    # Enter a parse tree produced by ChibchombianoParser#sum.
+    def enterSum(self, ctx:ChibchombianoParser.SumContext):
+        pass
+
+    # Exit a parse tree produced by ChibchombianoParser#sum.
+    def exitSum(self, ctx:ChibchombianoParser.SumContext):
         pass
 
 
@@ -195,6 +151,15 @@ class ChibchombianoListener(ParseTreeListener):
 
     # Exit a parse tree produced by ChibchombianoParser#term.
     def exitTerm(self, ctx:ChibchombianoParser.TermContext):
+        pass
+
+
+    # Enter a parse tree produced by ChibchombianoParser#array.
+    def enterArray(self, ctx:ChibchombianoParser.ArrayContext):
+        pass
+
+    # Exit a parse tree produced by ChibchombianoParser#array.
+    def exitArray(self, ctx:ChibchombianoParser.ArrayContext):
         pass
 
 
