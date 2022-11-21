@@ -1,0 +1,4 @@
+x=[1,2,3,4,5]
+y1=[1,4,9,16,25]
+scatter(x,y1,false,"Testing graph","g")
+plot(x,y1,true)

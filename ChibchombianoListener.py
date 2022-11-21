@@ -9,6 +9,13 @@ import numpy as np
 dictionary_symbols = dict() 
 from ASTNode.Puts import Puts 
 
+from ASTNode.Function import Function
+from ASTNode.Arguments import Arguments
+
+from ASTNode.And import And
+from ASTNode.Or import Or
+from ASTNode.Not import Not
+
 from ASTNode.GreaterThan import GreaterThan
 from ASTNode.LowerThan import LowerThan
 from ASTNode.EqualsThan import EqualsThan
@@ -109,6 +116,33 @@ class ChibchombianoListener(ParseTreeListener):
         pass
 
 
+    # Enter a parse tree produced by ChibchombianoParser#or_expression.
+    def enterOr_expression(self, ctx:ChibchombianoParser.Or_expressionContext):
+        pass
+
+    # Exit a parse tree produced by ChibchombianoParser#or_expression.
+    def exitOr_expression(self, ctx:ChibchombianoParser.Or_expressionContext):
+        pass
+
+
+    # Enter a parse tree produced by ChibchombianoParser#and_expression.
+    def enterAnd_expression(self, ctx:ChibchombianoParser.And_expressionContext):
+        pass
+
+    # Exit a parse tree produced by ChibchombianoParser#and_expression.
+    def exitAnd_expression(self, ctx:ChibchombianoParser.And_expressionContext):
+        pass
+
+
+    # Enter a parse tree produced by ChibchombianoParser#not_expression.
+    def enterNot_expression(self, ctx:ChibchombianoParser.Not_expressionContext):
+        pass
+
+    # Exit a parse tree produced by ChibchombianoParser#not_expression.
+    def exitNot_expression(self, ctx:ChibchombianoParser.Not_expressionContext):
+        pass
+
+
     # Enter a parse tree produced by ChibchombianoParser#logical_expression.
     def enterLogical_expression(self, ctx:ChibchombianoParser.Logical_expressionContext):
         pass
@@ -151,6 +185,24 @@ class ChibchombianoListener(ParseTreeListener):
 
     # Exit a parse tree produced by ChibchombianoParser#term.
     def exitTerm(self, ctx:ChibchombianoParser.TermContext):
+        pass
+
+
+    # Enter a parse tree produced by ChibchombianoParser#function.
+    def enterFunction(self, ctx:ChibchombianoParser.FunctionContext):
+        pass
+
+    # Exit a parse tree produced by ChibchombianoParser#function.
+    def exitFunction(self, ctx:ChibchombianoParser.FunctionContext):
+        pass
+
+
+    # Enter a parse tree produced by ChibchombianoParser#arguments.
+    def enterArguments(self, ctx:ChibchombianoParser.ArgumentsContext):
+        pass
+
+    # Exit a parse tree produced by ChibchombianoParser#arguments.
+    def exitArguments(self, ctx:ChibchombianoParser.ArgumentsContext):
         pass
 
 

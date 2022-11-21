@@ -1,11 +1,13 @@
 x=1
-if(x<2){
-    puts x-2
+if(x<2 and (x mod 2 == 0 or 1==1)){
+    puts "verdadero"
 }else{
-  puts x+1  
+  puts "Falso"  
 }
 
-while(x<3){
+//x= (1+10*(1+4))>(3+2)*3
+puts x
+/*while(x<3){
   x=x+1
   puts x
-}
+}*/

@@ -9,6 +9,13 @@ import numpy as np
 dictionary_symbols = dict() 
 from ASTNode.Puts import Puts 
 
+from ASTNode.Function import Function
+from ASTNode.Arguments import Arguments
+
+from ASTNode.And import And
+from ASTNode.Or import Or
+from ASTNode.Not import Not
+
 from ASTNode.GreaterThan import GreaterThan
 from ASTNode.LowerThan import LowerThan
 from ASTNode.EqualsThan import EqualsThan
@@ -78,6 +85,21 @@ class ChibchombianoVisitor(ParseTreeVisitor):
         return self.visitChildren(ctx)
 
 
+    # Visit a parse tree produced by ChibchombianoParser#or_expression.
+    def visitOr_expression(self, ctx:ChibchombianoParser.Or_expressionContext):
+        return self.visitChildren(ctx)
+
+
+    # Visit a parse tree produced by ChibchombianoParser#and_expression.
+    def visitAnd_expression(self, ctx:ChibchombianoParser.And_expressionContext):
+        return self.visitChildren(ctx)
+
+
+    # Visit a parse tree produced by ChibchombianoParser#not_expression.
+    def visitNot_expression(self, ctx:ChibchombianoParser.Not_expressionContext):
+        return self.visitChildren(ctx)
+
+
     # Visit a parse tree produced by ChibchombianoParser#logical_expression.
     def visitLogical_expression(self, ctx:ChibchombianoParser.Logical_expressionContext):
         return self.visitChildren(ctx)
@@ -100,6 +122,16 @@ class ChibchombianoVisitor(ParseTreeVisitor):
 
     # Visit a parse tree produced by ChibchombianoParser#term.
     def visitTerm(self, ctx:ChibchombianoParser.TermContext):
+        return self.visitChildren(ctx)
+
+
+    # Visit a parse tree produced by ChibchombianoParser#function.
+    def visitFunction(self, ctx:ChibchombianoParser.FunctionContext):
+        return self.visitChildren(ctx)
+
+
+    # Visit a parse tree produced by ChibchombianoParser#arguments.
+    def visitArguments(self, ctx:ChibchombianoParser.ArgumentsContext):
         return self.visitChildren(ctx)
 
 

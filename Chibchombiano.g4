@@ -5,6 +5,13 @@ import numpy as np
 dictionary_symbols = dict() 
 from ASTNode.Puts import Puts 
 
+from ASTNode.Function import Function
+from ASTNode.Arguments import Arguments
+
+from ASTNode.And import And
+from ASTNode.Or import Or
+from ASTNode.Not import Not
+
 from ASTNode.GreaterThan import GreaterThan
 from ASTNode.LowerThan import LowerThan
 from ASTNode.EqualsThan import EqualsThan
@@ -53,7 +60,8 @@ sentence returns [node]:
         |
         while_loop {$node = $while_loop.node}
         |
-        expression {$node = $expression.node};
+        expression {$node = $expression.node}
+;
 var_decl returns [node]: VAR ID  
 {
 $node = VarDecl($ID.text)
@@ -81,31 +89,40 @@ while_loop returns[node]: WHILE PAR_OPEN expression PAR_CLOSE
         {$node = WhileLoop($expression.node,body)}
 ;       
 
+expression returns[node]: or_expression {$node=$or_expression.node};
 
-expression returns[node]: logical_expression {$node=$logical_expression.node};
+or_expression returns[node]: e1=and_expression {$node=$e1.node} 
+(
+        OR e2=and_expression {$node=Or($node,$e2.node)} 
+)*;
+and_expression returns[node]: e1=not_expression{$node=$e1.node} 
+(
+        AND e2=not_expression {$node=And($node,$e2.node)}
+)*;
+not_expression returns [node]: (
+        e1=logical_expression {$node=$e1.node} 
+        |
+        NOT e2=logical_expression{$node=Not($e2.node)});
 logical_expression returns[node]: 
         e1=sum {$node=$e1.node}
         (
-                GT e2=expression
-                {$node=GreaterThan($e1.node,$e2.node)}
+                GT e2=sum
+                {$node=GreaterThan($node,$e2.node)}
                 |
-                LT e3=expression
-                {$node=LowerThan($e1.node,$e3.node)}
+                LT e3=sum
+                {$node=LowerThan($node,$e3.node)}
                 |
-                EQ e4=expression
-                {$node=Equals($e1.node,$e4.node)}
+                EQ e4=sum
+                {$node=EqualsThan($node,$e4.node)}
                 |
-                GEQ e5=expression
-                {$node=GreaterOrEqualThan($e1.node,$e5.node)}
+                GEQ e5=sum
+                {$node=GreaterOrEqualThan($node,$e5.node)}
                 |
-                LEQ e6=expression
-                {$node=LowerOrEqualThan($e1.node,$e6.node)}  
+                LEQ e6=sum
+                {$node=LowerOrEqualThan($node,$e6.node)}  
         )*
 
 ;
-
-
-
 
 sum returns [node]:
         t1=factor {$node= $t1.node}
@@ -135,7 +152,10 @@ exponent returns[node]:
                 POW t2= term {$node = Exponent($node,$t2.node)}
         )*;
 
-term returns [node]: NUMBER {
+term returns [node]: 
+STRING {$node=Constant($STRING.text)} 
+|
+NUMBER {
 splitted = $NUMBER.text.split(".") 
 if len(splitted)==1:
         $node = Constant(int($NUMBER.text))
@@ -149,24 +169,50 @@ BOOLEAN {
 put_bool=lambda x: x=="true"
 $node= Constant(put_bool($BOOLEAN.text))}
 |
-PAR_OPEN expression PAR_CLOSE {$node=$expression.node}
+PAR_OPEN e1=expression PAR_CLOSE {$node=$e1.node}
 |
 array {$node=$array.node}
 |
-function {$node=$function.node};
-
-function returns[node]: ID PAR_OPEN arguments? PAR_CLOSE
-{$node = Function($ID.text,$arguments.node)}
+function {$node = $function.node}
 ;
 
-arguments returns[node]: expression (','expression)*;
+
+function returns[node]: 
+        e1=(SIN|COS|TAN|CSC|SEC|COT|PLOT|SCATTER|GET_ELEM|INV|TRANS) PAR_OPEN arguments? PAR_CLOSE
+{$node = Function($e1.text,$arguments.node)}
+;
+
+arguments returns[node]: 
+{$node = Arguments()}
+e1=expression {$node.add($e1.node)}
+ (','e2=expression{$node.add($e2.node)})*;
+
 array returns[node]: 
- {$node = Array()}
- SQUARE_BRACKET_OPEN (e1=expression{$node.add($e1.node)} ( ',' e2=expression {$node.add($e2.node)})*)? SQUARE_BRACKET_CLOSE;
+ 
+{$node = Array()}
+ (
+        SQUARE_BRACKET_OPEN (e1=expression{$node.add($e1.node)}
+        ( ',' e2=expression {$node.add($e2.node)})*)? 
+        SQUARE_BRACKET_CLOSE
+        |
+        n1=NUMBER COLON (n2=NUMBER COLON)? n3=NUMBER
+        {$node.arange($n1,$n2,$n3)}
+ );
 
 PROGRAM: 'program';
 VAR: 'var';
 PUTS: 'puts';
+SIN: 'sin';
+COS: 'cos';
+TAN: 'tan';
+CSC: 'csc';
+SEC: 'sec';
+COT: 'cot';
+PLOT: 'plot';
+INV: 'inv';
+TRANS: 'trans';
+SCATTER: 'scatter';
+GET_ELEM: 'get_elem';
 
 IF: 'if';
 ELSE: 'else';
@@ -204,6 +250,7 @@ PAR_OPEN: '(';
 PAR_CLOSE: ')';
 
 SEMICOLON: ';';
+COLON: ':';
 
 BOOLEAN: 'true'|'false';
 
@@ -211,7 +258,15 @@ ID: [a-zA-Z_][a-zA-Z0-9_]*;
 
 NUMBER: [0-9]+[.]?[0-9]*;
 
-STRING: [a-zA-Z]+;
+STRING: '"' ('\\' ["\\] | ~["\\\r\n])* '"';
 
 WS: [ \t\n\r]+ -> skip;
 
+
+COMMENT
+    : '/*' .*? '*/' -> skip
+;
+
+LINE_COMMENT
+    : '//' ~[\r\n]* -> skip
+;

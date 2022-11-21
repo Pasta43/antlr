@@ -4,5 +4,4 @@ antlr4-parse Chibchombiano.g4 program -tokens -trace test.chb -> Muestra la traz
 
 antlr4-parse Chibchombiano.g4 program -gui test.chb -> Se genera el árbol 
 
-
 python main.py test.chb -> Interpretación del programa
