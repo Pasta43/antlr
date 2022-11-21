@@ -2,6 +2,7 @@ import numpy as np
 import matplotlib.pyplot as plt
 
 from ASTNode.ASTNode import ASTNode
+from ASTNode.File import File
 class Function(ASTNode):
     def __init__(self,function_name:str,arguments:ASTNode):
         """
@@ -45,6 +46,34 @@ class Function(ASTNode):
             args=self.arguments.execute(symbolTable)
             m = np.matrix(args[0])
             res = [m.I]
+        elif self.function_name=="open":
+            args = self.arguments.execute(symbolTable)
+            res=[File(args[0].replace("\"",""),args[1].replace("\"",""))]
+        elif self.function_name=="writeFile":
+            args =self.arguments.execute(symbolTable)
+            file=args[0].execute(symbolTable)
+            new_line=args[1]
+            file.write(new_line)
+        elif self.function_name=="hasNextLine":
+            args =self.arguments.execute(symbolTable)
+            file=args[0].execute(symbolTable)
+            curr_pos = file.tell()
+            file.seek(0, 2)      # go to end of file
+            eof = file.tell()    # get end-of-file position
+            file.seek(curr_pos)      # go back to start of file
+            res=[not file.tell()==eof]
+        elif self.function_name=="getNextLine":
+            args =self.arguments.execute(symbolTable)
+            file=args[0].execute(symbolTable)
+            res=[file.readline()]
+        elif self.function_name=="readAll":
+            args =self.arguments.execute(symbolTable)
+            file=args[0].execute(symbolTable)
+            res=["".join(file.readlines())]
+        elif self.function_name=="closeFile":
+            args =self.arguments.execute(symbolTable)
+            file=args[0].execute(symbolTable)
+            file.close()
         return res[0] if res != None and len(res)==1 else res
             
     

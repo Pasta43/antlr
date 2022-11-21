@@ -1,4 +1,4 @@
-x=1
+x=0-1
 if(x<2 and (x mod 2 == 0 or 1==1)){
     puts "verdadero"
 }else{

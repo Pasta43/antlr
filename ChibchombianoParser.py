@@ -46,7 +46,7 @@ from ASTNode.Array import Array
 
 def serializedATN():
     return [
-        4,1,49,304,2,0,7,0,2,1,7,1,2,2,7,2,2,3,7,3,2,4,7,4,2,5,7,5,2,6,7,
+        4,1,55,304,2,0,7,0,2,1,7,1,2,2,7,2,2,3,7,3,2,4,7,4,2,5,7,5,2,6,7,
         6,2,7,7,7,2,8,7,8,2,9,7,9,2,10,7,10,2,11,7,11,2,12,7,12,2,13,7,13,
         2,14,7,14,2,15,7,15,2,16,7,16,2,17,7,17,2,18,7,18,1,0,1,0,1,0,1,
         0,5,0,43,8,0,10,0,12,0,46,9,0,1,0,1,0,1,1,1,1,1,1,1,1,1,1,1,1,1,
@@ -70,7 +70,7 @@ def serializedATN():
         17,10,17,12,17,276,9,17,1,18,1,18,1,18,1,18,1,18,1,18,1,18,1,18,
         5,18,286,8,18,10,18,12,18,289,9,18,3,18,291,8,18,1,18,1,18,1,18,
         1,18,1,18,3,18,298,8,18,1,18,1,18,3,18,302,8,18,1,18,0,0,19,0,2,
-        4,6,8,10,12,14,16,18,20,22,24,26,28,30,32,34,36,0,1,1,0,5,15,320,
+        4,6,8,10,12,14,16,18,20,22,24,26,28,30,32,34,36,0,1,1,0,5,21,320,
         0,38,1,0,0,0,2,67,1,0,0,0,4,69,1,0,0,0,6,73,1,0,0,0,8,78,1,0,0,0,
         10,82,1,0,0,0,12,113,1,0,0,0,14,130,1,0,0,0,16,133,1,0,0,0,18,144,
         1,0,0,0,20,162,1,0,0,0,22,164,1,0,0,0,24,191,1,0,0,0,26,206,1,0,
@@ -83,72 +83,72 @@ def serializedATN():
         10,5,0,59,60,6,1,-1,0,60,68,1,0,0,0,61,62,3,12,6,0,62,63,6,1,-1,
         0,63,68,1,0,0,0,64,65,3,14,7,0,65,66,6,1,-1,0,66,68,1,0,0,0,67,49,
         1,0,0,0,67,52,1,0,0,0,67,55,1,0,0,0,67,58,1,0,0,0,67,61,1,0,0,0,
-        67,64,1,0,0,0,68,3,1,0,0,0,69,70,5,3,0,0,70,71,5,44,0,0,71,72,6,
-        2,-1,0,72,5,1,0,0,0,73,74,5,44,0,0,74,75,5,34,0,0,75,76,3,14,7,0,
+        67,64,1,0,0,0,68,3,1,0,0,0,69,70,5,3,0,0,70,71,5,50,0,0,71,72,6,
+        2,-1,0,72,5,1,0,0,0,73,74,5,50,0,0,74,75,5,40,0,0,75,76,3,14,7,0,
         76,77,6,3,-1,0,77,7,1,0,0,0,78,79,5,4,0,0,79,80,3,14,7,0,80,81,6,
-        4,-1,0,81,9,1,0,0,0,82,83,5,16,0,0,83,84,5,39,0,0,84,85,3,14,7,0,
-        85,86,5,40,0,0,86,87,6,5,-1,0,87,88,6,5,-1,0,88,94,5,37,0,0,89,90,
+        4,-1,0,81,9,1,0,0,0,82,83,5,22,0,0,83,84,5,45,0,0,84,85,3,14,7,0,
+        85,86,5,46,0,0,86,87,6,5,-1,0,87,88,6,5,-1,0,88,94,5,43,0,0,89,90,
         3,2,1,0,90,91,6,5,-1,0,91,93,1,0,0,0,92,89,1,0,0,0,93,96,1,0,0,0,
         94,92,1,0,0,0,94,95,1,0,0,0,95,97,1,0,0,0,96,94,1,0,0,0,97,109,5,
-        38,0,0,98,99,5,17,0,0,99,105,5,37,0,0,100,101,3,2,1,0,101,102,6,
+        44,0,0,98,99,5,23,0,0,99,105,5,43,0,0,100,101,3,2,1,0,101,102,6,
         5,-1,0,102,104,1,0,0,0,103,100,1,0,0,0,104,107,1,0,0,0,105,103,1,
         0,0,0,105,106,1,0,0,0,106,108,1,0,0,0,107,105,1,0,0,0,108,110,5,
-        38,0,0,109,98,1,0,0,0,109,110,1,0,0,0,110,111,1,0,0,0,111,112,6,
-        5,-1,0,112,11,1,0,0,0,113,114,5,18,0,0,114,115,5,39,0,0,115,116,
-        3,14,7,0,116,117,5,40,0,0,117,118,6,6,-1,0,118,124,5,37,0,0,119,
+        44,0,0,109,98,1,0,0,0,109,110,1,0,0,0,110,111,1,0,0,0,111,112,6,
+        5,-1,0,112,11,1,0,0,0,113,114,5,24,0,0,114,115,5,45,0,0,115,116,
+        3,14,7,0,116,117,5,46,0,0,117,118,6,6,-1,0,118,124,5,43,0,0,119,
         120,3,2,1,0,120,121,6,6,-1,0,121,123,1,0,0,0,122,119,1,0,0,0,123,
         126,1,0,0,0,124,122,1,0,0,0,124,125,1,0,0,0,125,127,1,0,0,0,126,
-        124,1,0,0,0,127,128,5,38,0,0,128,129,6,6,-1,0,129,13,1,0,0,0,130,
+        124,1,0,0,0,127,128,5,44,0,0,128,129,6,6,-1,0,129,13,1,0,0,0,130,
         131,3,16,8,0,131,132,6,7,-1,0,132,15,1,0,0,0,133,134,3,18,9,0,134,
-        141,6,8,-1,0,135,136,5,26,0,0,136,137,3,18,9,0,137,138,6,8,-1,0,
+        141,6,8,-1,0,135,136,5,32,0,0,136,137,3,18,9,0,137,138,6,8,-1,0,
         138,140,1,0,0,0,139,135,1,0,0,0,140,143,1,0,0,0,141,139,1,0,0,0,
         141,142,1,0,0,0,142,17,1,0,0,0,143,141,1,0,0,0,144,145,3,20,10,0,
-        145,152,6,9,-1,0,146,147,5,25,0,0,147,148,3,20,10,0,148,149,6,9,
+        145,152,6,9,-1,0,146,147,5,31,0,0,147,148,3,20,10,0,148,149,6,9,
         -1,0,149,151,1,0,0,0,150,146,1,0,0,0,151,154,1,0,0,0,152,150,1,0,
         0,0,152,153,1,0,0,0,153,19,1,0,0,0,154,152,1,0,0,0,155,156,3,22,
-        11,0,156,157,6,10,-1,0,157,163,1,0,0,0,158,159,5,27,0,0,159,160,
+        11,0,156,157,6,10,-1,0,157,163,1,0,0,0,158,159,5,33,0,0,159,160,
         3,22,11,0,160,161,6,10,-1,0,161,163,1,0,0,0,162,155,1,0,0,0,162,
         158,1,0,0,0,163,21,1,0,0,0,164,165,3,24,12,0,165,188,6,11,-1,0,166,
-        167,5,28,0,0,167,168,3,24,12,0,168,169,6,11,-1,0,169,187,1,0,0,0,
-        170,171,5,29,0,0,171,172,3,24,12,0,172,173,6,11,-1,0,173,187,1,0,
-        0,0,174,175,5,32,0,0,175,176,3,24,12,0,176,177,6,11,-1,0,177,187,
-        1,0,0,0,178,179,5,30,0,0,179,180,3,24,12,0,180,181,6,11,-1,0,181,
-        187,1,0,0,0,182,183,5,31,0,0,183,184,3,24,12,0,184,185,6,11,-1,0,
+        167,5,34,0,0,167,168,3,24,12,0,168,169,6,11,-1,0,169,187,1,0,0,0,
+        170,171,5,35,0,0,171,172,3,24,12,0,172,173,6,11,-1,0,173,187,1,0,
+        0,0,174,175,5,38,0,0,175,176,3,24,12,0,176,177,6,11,-1,0,177,187,
+        1,0,0,0,178,179,5,36,0,0,179,180,3,24,12,0,180,181,6,11,-1,0,181,
+        187,1,0,0,0,182,183,5,37,0,0,183,184,3,24,12,0,184,185,6,11,-1,0,
         185,187,1,0,0,0,186,166,1,0,0,0,186,170,1,0,0,0,186,174,1,0,0,0,
         186,178,1,0,0,0,186,182,1,0,0,0,187,190,1,0,0,0,188,186,1,0,0,0,
         188,189,1,0,0,0,189,23,1,0,0,0,190,188,1,0,0,0,191,192,3,26,13,0,
-        192,203,6,12,-1,0,193,194,5,19,0,0,194,195,3,26,13,0,195,196,6,12,
-        -1,0,196,202,1,0,0,0,197,198,5,20,0,0,198,199,3,26,13,0,199,200,
+        192,203,6,12,-1,0,193,194,5,25,0,0,194,195,3,26,13,0,195,196,6,12,
+        -1,0,196,202,1,0,0,0,197,198,5,26,0,0,198,199,3,26,13,0,199,200,
         6,12,-1,0,200,202,1,0,0,0,201,193,1,0,0,0,201,197,1,0,0,0,202,205,
         1,0,0,0,203,201,1,0,0,0,203,204,1,0,0,0,204,25,1,0,0,0,205,203,1,
-        0,0,0,206,207,3,28,14,0,207,222,6,13,-1,0,208,209,5,21,0,0,209,210,
-        3,28,14,0,210,211,6,13,-1,0,211,221,1,0,0,0,212,213,5,22,0,0,213,
-        214,3,28,14,0,214,215,6,13,-1,0,215,221,1,0,0,0,216,217,5,23,0,0,
+        0,0,0,206,207,3,28,14,0,207,222,6,13,-1,0,208,209,5,27,0,0,209,210,
+        3,28,14,0,210,211,6,13,-1,0,211,221,1,0,0,0,212,213,5,28,0,0,213,
+        214,3,28,14,0,214,215,6,13,-1,0,215,221,1,0,0,0,216,217,5,29,0,0,
         217,218,3,28,14,0,218,219,6,13,-1,0,219,221,1,0,0,0,220,208,1,0,
         0,0,220,212,1,0,0,0,220,216,1,0,0,0,221,224,1,0,0,0,222,220,1,0,
         0,0,222,223,1,0,0,0,223,27,1,0,0,0,224,222,1,0,0,0,225,226,3,30,
-        15,0,226,233,6,14,-1,0,227,228,5,24,0,0,228,229,3,30,15,0,229,230,
+        15,0,226,233,6,14,-1,0,227,228,5,30,0,0,228,229,3,30,15,0,229,230,
         6,14,-1,0,230,232,1,0,0,0,231,227,1,0,0,0,232,235,1,0,0,0,233,231,
         1,0,0,0,233,234,1,0,0,0,234,29,1,0,0,0,235,233,1,0,0,0,236,237,5,
-        46,0,0,237,256,6,15,-1,0,238,239,5,45,0,0,239,256,6,15,-1,0,240,
-        241,5,44,0,0,241,256,6,15,-1,0,242,243,5,43,0,0,243,256,6,15,-1,
-        0,244,245,5,39,0,0,245,246,3,14,7,0,246,247,5,40,0,0,247,248,6,15,
+        52,0,0,237,256,6,15,-1,0,238,239,5,51,0,0,239,256,6,15,-1,0,240,
+        241,5,50,0,0,241,256,6,15,-1,0,242,243,5,49,0,0,243,256,6,15,-1,
+        0,244,245,5,45,0,0,245,246,3,14,7,0,246,247,5,46,0,0,247,248,6,15,
         -1,0,248,256,1,0,0,0,249,250,3,36,18,0,250,251,6,15,-1,0,251,256,
         1,0,0,0,252,253,3,32,16,0,253,254,6,15,-1,0,254,256,1,0,0,0,255,
         236,1,0,0,0,255,238,1,0,0,0,255,240,1,0,0,0,255,242,1,0,0,0,255,
         244,1,0,0,0,255,249,1,0,0,0,255,252,1,0,0,0,256,31,1,0,0,0,257,258,
-        7,0,0,0,258,260,5,39,0,0,259,261,3,34,17,0,260,259,1,0,0,0,260,261,
-        1,0,0,0,261,262,1,0,0,0,262,263,5,40,0,0,263,264,6,16,-1,0,264,33,
+        7,0,0,0,258,260,5,45,0,0,259,261,3,34,17,0,260,259,1,0,0,0,260,261,
+        1,0,0,0,261,262,1,0,0,0,262,263,5,46,0,0,263,264,6,16,-1,0,264,33,
         1,0,0,0,265,266,6,17,-1,0,266,267,3,14,7,0,267,274,6,17,-1,0,268,
         269,5,1,0,0,269,270,3,14,7,0,270,271,6,17,-1,0,271,273,1,0,0,0,272,
         268,1,0,0,0,273,276,1,0,0,0,274,272,1,0,0,0,274,275,1,0,0,0,275,
-        35,1,0,0,0,276,274,1,0,0,0,277,301,6,18,-1,0,278,290,5,35,0,0,279,
+        35,1,0,0,0,276,274,1,0,0,0,277,301,6,18,-1,0,278,290,5,41,0,0,279,
         280,3,14,7,0,280,287,6,18,-1,0,281,282,5,1,0,0,282,283,3,14,7,0,
         283,284,6,18,-1,0,284,286,1,0,0,0,285,281,1,0,0,0,286,289,1,0,0,
         0,287,285,1,0,0,0,287,288,1,0,0,0,288,291,1,0,0,0,289,287,1,0,0,
-        0,290,279,1,0,0,0,290,291,1,0,0,0,291,292,1,0,0,0,292,302,5,36,0,
-        0,293,294,5,45,0,0,294,297,5,42,0,0,295,296,5,45,0,0,296,298,5,42,
-        0,0,297,295,1,0,0,0,297,298,1,0,0,0,298,299,1,0,0,0,299,300,5,45,
+        0,290,279,1,0,0,0,290,291,1,0,0,0,291,292,1,0,0,0,292,302,5,42,0,
+        0,293,294,5,51,0,0,294,297,5,48,0,0,295,296,5,51,0,0,296,298,5,48,
+        0,0,297,295,1,0,0,0,297,298,1,0,0,0,298,299,1,0,0,0,299,300,5,51,
         0,0,300,302,6,18,-1,0,301,278,1,0,0,0,301,293,1,0,0,0,302,37,1,0,
         0,0,23,44,67,94,105,109,124,141,152,162,186,188,201,203,220,222,
         233,255,260,274,287,290,297,301
@@ -167,20 +167,23 @@ class ChibchombianoParser ( Parser ):
     literalNames = [ "<INVALID>", "','", "'program'", "'var'", "'puts'", 
                      "'sin'", "'cos'", "'tan'", "'csc'", "'sec'", "'cot'", 
                      "'plot'", "'inv'", "'trans'", "'scatter'", "'get_elem'", 
-                     "'if'", "'else'", "'while'", "'+'", "'-'", "'*'", "'/'", 
-                     "'mod'", "'^'", "'and'", "'or'", "'not'", "'>'", "'<'", 
-                     "'>='", "'<='", "'=='", "'!='", "'='", "'['", "']'", 
-                     "'{'", "'}'", "'('", "')'", "';'", "':'" ]
+                     "'open'", "'getNextLine'", "'hasNextLine'", "'writeFile'", 
+                     "'readAll'", "'closeFile'", "'if'", "'else'", "'while'", 
+                     "'+'", "'-'", "'*'", "'/'", "'mod'", "'^'", "'and'", 
+                     "'or'", "'not'", "'>'", "'<'", "'>='", "'<='", "'=='", 
+                     "'!='", "'='", "'['", "']'", "'{'", "'}'", "'('", "')'", 
+                     "';'", "':'" ]
 
     symbolicNames = [ "<INVALID>", "<INVALID>", "PROGRAM", "VAR", "PUTS", 
                       "SIN", "COS", "TAN", "CSC", "SEC", "COT", "PLOT", 
-                      "INV", "TRANS", "SCATTER", "GET_ELEM", "IF", "ELSE", 
-                      "WHILE", "PLUS", "MINUS", "MULT", "DIV", "MOD", "POW", 
-                      "AND", "OR", "NOT", "GT", "LT", "GEQ", "LEQ", "EQ", 
-                      "NEQ", "ASSIGN", "SQUARE_BRACKET_OPEN", "SQUARE_BRACKET_CLOSE", 
-                      "BRACKET_OPEN", "BRACKET_CLOSE", "PAR_OPEN", "PAR_CLOSE", 
-                      "SEMICOLON", "COLON", "BOOLEAN", "ID", "NUMBER", "STRING", 
-                      "WS", "COMMENT", "LINE_COMMENT" ]
+                      "INV", "TRANS", "SCATTER", "GET_ELEM", "OPEN_FILE", 
+                      "READ_LINE", "HAS_NEXT_LINE", "WRITE_FILE", "READ_ALL_LINES", 
+                      "CLOSE_FILE", "IF", "ELSE", "WHILE", "PLUS", "MINUS", 
+                      "MULT", "DIV", "MOD", "POW", "AND", "OR", "NOT", "GT", 
+                      "LT", "GEQ", "LEQ", "EQ", "NEQ", "ASSIGN", "SQUARE_BRACKET_OPEN", 
+                      "SQUARE_BRACKET_CLOSE", "BRACKET_OPEN", "BRACKET_CLOSE", 
+                      "PAR_OPEN", "PAR_CLOSE", "SEMICOLON", "COLON", "BOOLEAN", 
+                      "ID", "NUMBER", "STRING", "WS", "COMMENT", "LINE_COMMENT" ]
 
     RULE_program = 0
     RULE_sentence = 1
@@ -224,49 +227,52 @@ class ChibchombianoParser ( Parser ):
     TRANS=13
     SCATTER=14
     GET_ELEM=15
-    IF=16
-    ELSE=17
-    WHILE=18
-    PLUS=19
-    MINUS=20
-    MULT=21
-    DIV=22
-    MOD=23
-    POW=24
-    AND=25
-    OR=26
-    NOT=27
-    GT=28
-    LT=29
-    GEQ=30
-    LEQ=31
-    EQ=32
-    NEQ=33
-    ASSIGN=34
-    SQUARE_BRACKET_OPEN=35
-    SQUARE_BRACKET_CLOSE=36
-    BRACKET_OPEN=37
-    BRACKET_CLOSE=38
-    PAR_OPEN=39
-    PAR_CLOSE=40
-    SEMICOLON=41
-    COLON=42
-    BOOLEAN=43
-    ID=44
-    NUMBER=45
-    STRING=46
-    WS=47
-    COMMENT=48
-    LINE_COMMENT=49
+    OPEN_FILE=16
+    READ_LINE=17
+    HAS_NEXT_LINE=18
+    WRITE_FILE=19
+    READ_ALL_LINES=20
+    CLOSE_FILE=21
+    IF=22
+    ELSE=23
+    WHILE=24
+    PLUS=25
+    MINUS=26
+    MULT=27
+    DIV=28
+    MOD=29
+    POW=30
+    AND=31
+    OR=32
+    NOT=33
+    GT=34
+    LT=35
+    GEQ=36
+    LEQ=37
+    EQ=38
+    NEQ=39
+    ASSIGN=40
+    SQUARE_BRACKET_OPEN=41
+    SQUARE_BRACKET_CLOSE=42
+    BRACKET_OPEN=43
+    BRACKET_CLOSE=44
+    PAR_OPEN=45
+    PAR_CLOSE=46
+    SEMICOLON=47
+    COLON=48
+    BOOLEAN=49
+    ID=50
+    NUMBER=51
+    STRING=52
+    WS=53
+    COMMENT=54
+    LINE_COMMENT=55
 
     def __init__(self, input:TokenStream, output:TextIO = sys.stdout):
         super().__init__(input, output)
         self.checkVersion("4.11.1")
         self._interp = ParserATNSimulator(self, self.atn, self.decisionsToDFA, self.sharedContextCache)
         self._predicates = None
-
-
-
 
 
 
@@ -317,7 +323,7 @@ class ChibchombianoParser ( Parser ):
             self.state = 44
             self._errHandler.sync(self)
             _la = self._input.LA(1)
-            while ((_la) & ~0x3f) == 0 and ((1 << _la) & 132525645496312) != 0:
+            while ((_la) & ~0x3f) == 0 and ((1 << _la) & 8481641311764472) != 0:
                 self.state = 39
                 localctx._sentence = self.sentence()
                 body.append(localctx._sentence.node)
@@ -719,7 +725,7 @@ class ChibchombianoParser ( Parser ):
             self.state = 94
             self._errHandler.sync(self)
             _la = self._input.LA(1)
-            while ((_la) & ~0x3f) == 0 and ((1 << _la) & 132525645496312) != 0:
+            while ((_la) & ~0x3f) == 0 and ((1 << _la) & 8481641311764472) != 0:
                 self.state = 89
                 localctx.s1 = self.sentence()
                 body.append(localctx.s1.node)
@@ -732,7 +738,7 @@ class ChibchombianoParser ( Parser ):
             self.state = 109
             self._errHandler.sync(self)
             _la = self._input.LA(1)
-            if _la==17:
+            if _la==23:
                 self.state = 98
                 self.match(ChibchombianoParser.ELSE)
                 self.state = 99
@@ -740,7 +746,7 @@ class ChibchombianoParser ( Parser ):
                 self.state = 105
                 self._errHandler.sync(self)
                 _la = self._input.LA(1)
-                while ((_la) & ~0x3f) == 0 and ((1 << _la) & 132525645496312) != 0:
+                while ((_la) & ~0x3f) == 0 and ((1 << _la) & 8481641311764472) != 0:
                     self.state = 100
                     localctx.s2 = self.sentence()
                     elseBody.append(localctx.s2.node)
@@ -839,7 +845,7 @@ class ChibchombianoParser ( Parser ):
             self.state = 124
             self._errHandler.sync(self)
             _la = self._input.LA(1)
-            while ((_la) & ~0x3f) == 0 and ((1 << _la) & 132525645496312) != 0:
+            while ((_la) & ~0x3f) == 0 and ((1 << _la) & 8481641311764472) != 0:
                 self.state = 119
                 localctx.s1 = self.sentence()
                 body.append(localctx.s1.node)
@@ -966,7 +972,7 @@ class ChibchombianoParser ( Parser ):
             self.state = 141
             self._errHandler.sync(self)
             _la = self._input.LA(1)
-            while _la==26:
+            while _la==32:
                 self.state = 135
                 self.match(ChibchombianoParser.OR)
                 self.state = 136
@@ -1041,7 +1047,7 @@ class ChibchombianoParser ( Parser ):
             self.state = 152
             self._errHandler.sync(self)
             _la = self._input.LA(1)
-            while _la==25:
+            while _la==31:
                 self.state = 146
                 self.match(ChibchombianoParser.AND)
                 self.state = 147
@@ -1106,12 +1112,12 @@ class ChibchombianoParser ( Parser ):
             self.state = 162
             self._errHandler.sync(self)
             token = self._input.LA(1)
-            if token in [5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 35, 39, 43, 44, 45, 46]:
+            if token in [5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 41, 45, 49, 50, 51, 52]:
                 self.state = 155
                 localctx.e1 = self.logical_expression()
                 localctx.node=localctx.e1.node
                 pass
-            elif token in [27]:
+            elif token in [33]:
                 self.state = 158
                 self.match(ChibchombianoParser.NOT)
                 self.state = 159
@@ -1214,39 +1220,39 @@ class ChibchombianoParser ( Parser ):
             self.state = 188
             self._errHandler.sync(self)
             _la = self._input.LA(1)
-            while ((_la) & ~0x3f) == 0 and ((1 << _la) & 8321499136) != 0:
+            while ((_la) & ~0x3f) == 0 and ((1 << _la) & 532575944704) != 0:
                 self.state = 186
                 self._errHandler.sync(self)
                 token = self._input.LA(1)
-                if token in [28]:
+                if token in [34]:
                     self.state = 166
                     self.match(ChibchombianoParser.GT)
                     self.state = 167
                     localctx.e2 = self.sum_()
                     localctx.node=GreaterThan(localctx.node,localctx.e2.node)
                     pass
-                elif token in [29]:
+                elif token in [35]:
                     self.state = 170
                     self.match(ChibchombianoParser.LT)
                     self.state = 171
                     localctx.e3 = self.sum_()
                     localctx.node=LowerThan(localctx.node,localctx.e3.node)
                     pass
-                elif token in [32]:
+                elif token in [38]:
                     self.state = 174
                     self.match(ChibchombianoParser.EQ)
                     self.state = 175
                     localctx.e4 = self.sum_()
                     localctx.node=EqualsThan(localctx.node,localctx.e4.node)
                     pass
-                elif token in [30]:
+                elif token in [36]:
                     self.state = 178
                     self.match(ChibchombianoParser.GEQ)
                     self.state = 179
                     localctx.e5 = self.sum_()
                     localctx.node=GreaterOrEqualThan(localctx.node,localctx.e5.node)
                     pass
-                elif token in [31]:
+                elif token in [37]:
                     self.state = 182
                     self.match(ChibchombianoParser.LEQ)
                     self.state = 183
@@ -1332,18 +1338,18 @@ class ChibchombianoParser ( Parser ):
             self.state = 203
             self._errHandler.sync(self)
             _la = self._input.LA(1)
-            while _la==19 or _la==20:
+            while _la==25 or _la==26:
                 self.state = 201
                 self._errHandler.sync(self)
                 token = self._input.LA(1)
-                if token in [19]:
+                if token in [25]:
                     self.state = 193
                     self.match(ChibchombianoParser.PLUS)
                     self.state = 194
                     localctx.t2 = self.factor()
                     localctx.node= Addition(localctx.node,localctx.t2.node)
                     pass
-                elif token in [20]:
+                elif token in [26]:
                     self.state = 197
                     self.match(ChibchombianoParser.MINUS)
                     self.state = 198
@@ -1436,25 +1442,25 @@ class ChibchombianoParser ( Parser ):
             self.state = 222
             self._errHandler.sync(self)
             _la = self._input.LA(1)
-            while ((_la) & ~0x3f) == 0 and ((1 << _la) & 14680064) != 0:
+            while ((_la) & ~0x3f) == 0 and ((1 << _la) & 939524096) != 0:
                 self.state = 220
                 self._errHandler.sync(self)
                 token = self._input.LA(1)
-                if token in [21]:
+                if token in [27]:
                     self.state = 208
                     self.match(ChibchombianoParser.MULT)
                     self.state = 209
                     localctx.t2 = self.exponent()
                     localctx.node = Multiplication(localctx.node, localctx.t2.node)
                     pass
-                elif token in [22]:
+                elif token in [28]:
                     self.state = 212
                     self.match(ChibchombianoParser.DIV)
                     self.state = 213
                     localctx.t3 = self.exponent()
                     localctx.node = Division(localctx.node,localctx.t3.node)
                     pass
-                elif token in [23]:
+                elif token in [29]:
                     self.state = 216
                     self.match(ChibchombianoParser.MOD)
                     self.state = 217
@@ -1533,7 +1539,7 @@ class ChibchombianoParser ( Parser ):
             self.state = 233
             self._errHandler.sync(self)
             _la = self._input.LA(1)
-            while _la==24:
+            while _la==30:
                 self.state = 227
                 self.match(ChibchombianoParser.POW)
                 self.state = 228
@@ -1745,6 +1751,24 @@ class ChibchombianoParser ( Parser ):
         def TRANS(self):
             return self.getToken(ChibchombianoParser.TRANS, 0)
 
+        def OPEN_FILE(self):
+            return self.getToken(ChibchombianoParser.OPEN_FILE, 0)
+
+        def READ_LINE(self):
+            return self.getToken(ChibchombianoParser.READ_LINE, 0)
+
+        def HAS_NEXT_LINE(self):
+            return self.getToken(ChibchombianoParser.HAS_NEXT_LINE, 0)
+
+        def WRITE_FILE(self):
+            return self.getToken(ChibchombianoParser.WRITE_FILE, 0)
+
+        def READ_ALL_LINES(self):
+            return self.getToken(ChibchombianoParser.READ_ALL_LINES, 0)
+
+        def CLOSE_FILE(self):
+            return self.getToken(ChibchombianoParser.CLOSE_FILE, 0)
+
         def arguments(self):
             return self.getTypedRuleContext(ChibchombianoParser.ArgumentsContext,0)
 
@@ -1779,7 +1803,7 @@ class ChibchombianoParser ( Parser ):
             self.state = 257
             localctx.e1 = self._input.LT(1)
             _la = self._input.LA(1)
-            if not(((_la) & ~0x3f) == 0 and ((1 << _la) & 65504) != 0):
+            if not(((_la) & ~0x3f) == 0 and ((1 << _la) & 4194272) != 0):
                 localctx.e1 = self._errHandler.recoverInline(self)
             else:
                 self._errHandler.reportMatch(self)
@@ -1789,7 +1813,7 @@ class ChibchombianoParser ( Parser ):
             self.state = 260
             self._errHandler.sync(self)
             _la = self._input.LA(1)
-            if ((_la) & ~0x3f) == 0 and ((1 << _la) & 132525645168608) != 0:
+            if ((_la) & ~0x3f) == 0 and ((1 << _la) & 8481641290792928) != 0:
                 self.state = 259
                 localctx._arguments = self.arguments()
 
@@ -1945,13 +1969,13 @@ class ChibchombianoParser ( Parser ):
             self.state = 301
             self._errHandler.sync(self)
             token = self._input.LA(1)
-            if token in [35]:
+            if token in [41]:
                 self.state = 278
                 self.match(ChibchombianoParser.SQUARE_BRACKET_OPEN)
                 self.state = 290
                 self._errHandler.sync(self)
                 _la = self._input.LA(1)
-                if ((_la) & ~0x3f) == 0 and ((1 << _la) & 132525645168608) != 0:
+                if ((_la) & ~0x3f) == 0 and ((1 << _la) & 8481641290792928) != 0:
                     self.state = 279
                     localctx.e1 = self.expression()
                     localctx.node.add(localctx.e1.node)
@@ -1973,7 +1997,7 @@ class ChibchombianoParser ( Parser ):
                 self.state = 292
                 self.match(ChibchombianoParser.SQUARE_BRACKET_CLOSE)
                 pass
-            elif token in [45]:
+            elif token in [51]:
                 self.state = 293
                 localctx.n1 = self.match(ChibchombianoParser.NUMBER)
                 self.state = 294

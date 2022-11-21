@@ -1,4 +1,4 @@
-antlr4 -Dlanguage=Python3 Chibchombiano.g4 -visitor   -> Comando para generar Lexer, Listerner, Parser y Visitor
+antlr4 -Dlanguage=Python3 Chibchombiano.g4 -visitor   -> Comando para generar Lexer, Parser y Visitor
 
 antlr4-parse Chibchombiano.g4 program -tokens -trace test.chb -> Muestra la traza de tokens del archivo test.chb
 

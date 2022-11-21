@@ -1,0 +1,15 @@
+f = open("cmds.txt","r")
+while(hasNextLine(f)){
+  line = getNextLine(f)
+  puts line
+}
+
+f2 = open("test.txt","w")
+writeFile(f2,"test")
+closeFile(f)
+closeFile(f2)
+f3=open("test.txt","w")
+while(hasNextLine(f3)){
+  line = getNextLine(f3)
+  puts line
+}

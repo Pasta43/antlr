@@ -1,0 +1,5 @@
+f = open("cmds.txt","r")
+lines = readAll(f)
+
+puts lines
+closeFile(f)

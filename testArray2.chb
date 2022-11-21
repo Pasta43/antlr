@@ -1,4 +1,4 @@
-x=2:2:10
+x= 2:2:10
 puts get_elem(x,2)
 
 arr=[

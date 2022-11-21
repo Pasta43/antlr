@@ -1,5 +1,14 @@
-x=0
+x=0-5
 while(x<3){
   puts x
   x=x+1
+}
+if(){
+
+}else{
+  if(){
+
+  }else{
+    
+  }
 }

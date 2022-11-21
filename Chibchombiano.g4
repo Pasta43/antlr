@@ -37,9 +37,6 @@ from ASTNode.VarAssign import VarAssign
 from ASTNode.Array import Array
 }
 
-@parser::members {
-
-}
 program:
         {body=list()}
         (sentence {body.append($sentence.node)})* 
@@ -52,8 +49,6 @@ for node in body:
 sentence returns [node]:  
         var_assign {$node =$var_assign.node}
         |
-        var_decl {$node = $var_decl.node}
-        |
         std_output {$node = $std_output.node}
         | 
         conditional {$node=$conditional.node}
@@ -62,10 +57,6 @@ sentence returns [node]:
         |
         expression {$node = $expression.node}
 ;
-var_decl returns [node]: VAR ID  
-{
-$node = VarDecl($ID.text)
-} ;
 
 
 var_assign returns[node]: ID ASSIGN expression
@@ -178,7 +169,25 @@ function {$node = $function.node}
 
 
 function returns[node]: 
-        e1=(SIN|COS|TAN|CSC|SEC|COT|PLOT|SCATTER|GET_ELEM|INV|TRANS) PAR_OPEN arguments? PAR_CLOSE
+        e1=(
+                SIN
+                |COS
+                |TAN
+                |CSC
+                |SEC
+                |COT
+                |PLOT
+                |SCATTER
+                |GET_ELEM
+                |INV
+                |TRANS
+                |OPEN_FILE
+                |READ_LINE
+                |HAS_NEXT_LINE
+                |WRITE_FILE
+                |READ_ALL_LINES
+                |CLOSE_FILE
+        ) PAR_OPEN arguments? PAR_CLOSE
 {$node = Function($e1.text,$arguments.node)}
 ;
 
@@ -199,8 +208,6 @@ array returns[node]:
         {$node.arange($n1,$n2,$n3)}
  );
 
-PROGRAM: 'program';
-VAR: 'var';
 PUTS: 'puts';
 SIN: 'sin';
 COS: 'cos';
@@ -212,7 +219,13 @@ PLOT: 'plot';
 INV: 'inv';
 TRANS: 'trans';
 SCATTER: 'scatter';
-GET_ELEM: 'get_elem';
+GET_ELEM: 'getElem';
+OPEN_FILE: 'open';
+READ_LINE: 'getNextLine';
+HAS_NEXT_LINE: 'hasNextLine';
+WRITE_FILE: 'writeFile';
+READ_ALL_LINES: 'readAll';
+CLOSE_FILE: 'closeFile';
 
 IF: 'if';
 ELSE: 'else';
